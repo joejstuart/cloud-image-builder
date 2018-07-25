@@ -36,12 +36,12 @@ deployOpenShiftTemplate(containersWithProps: containers, openshift_namespace: 'k
         try {
 
             stage('build-image') {
+                sh 'env'
                 def cmd = """
                     curl -L -o /tmp/packer.zip https://releases.hashicorp.com/packer/1.2.5/packer_1.2.5_linux_amd64.zip
                     unzip /tmp/packer.zip -d .
                     sh \${BUILD_SCRIPT}
                     """
-                sh 'env'
 
                 checkout scm
                 executeInContainer(containerName: 'ansible-executor', containerScript: cmd, stageVars: params,
