@@ -19,7 +19,7 @@ def credentials = [
 def credentials = [
         string(credentialsId: '3e509b47-7263-42dc-ac1e-99bbfaadcfe9', variable: 'AWS_ACCESS_KEY_ID'),
         string(credentialsId: '39a3fbf6-f8f9-4fc6-87bc-b294de7636ba', variable: 'AWS_SECRET_ACCESS_KEY'),
-        string(credentialsId: 'kubevirt-aws-subnet-id', variable: 'AWS_SUBNET_ID'),
+        string(credentialsId: 'b2f2d0b1-a796-4bdf-92ce-9893729fea3c', variable: 'AWS_SUBNET_ID'),
         string(credentialsId: 'kubevirt-aws-security-group-id', variable: 'AWS_SECURITY_GROUP_ID'),
         string(credentialsId: 'kubevirt-aws-security-group', variable: 'AWS_SECURITY_GROUP'),
         string(credentialsId: 'kubevirt-aws-key-name', variable: 'AWS_KEY_NAME'),
