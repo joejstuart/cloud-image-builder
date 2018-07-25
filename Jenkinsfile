@@ -3,6 +3,7 @@
 
 def containers = ['ansible-executor': [tag: 'latest', privileged: false, command: 'uid_entrypoint cat']]
 def podName = "cloud-image-builder-${UUID.randomUUID().toString()}"
+/*
 def credentials = [
         string(credentialsId: 'kubevirt-aws-access-key-id', variable: 'AWS_ACCESS_KEY_ID'),
         string(credentialsId: 'kubevirt-aws-secret-access-key', variable: 'AWS_SECRET_ACCESS_KEY'),
@@ -13,7 +14,18 @@ def credentials = [
         sshUserPrivateKey(credentialsId: 'kubevirt-aws-ssh-private-key', keyFileVariable: 'SSH_KEY_LOCATION')
 ]
 
+*/
 
+def credentials = [
+        string(credentialsId: '3e509b47-7263-42dc-ac1e-99bbfaadcfe9', variable: 'AWS_ACCESS_KEY_ID'),
+        string(credentialsId: '39a3fbf6-f8f9-4fc6-87bc-b294de7636ba', variable: 'AWS_SECRET_ACCESS_KEY'),
+        string(credentialsId: 'kubevirt-aws-subnet-id', variable: 'AWS_SUBNET_ID'),
+        string(credentialsId: 'kubevirt-aws-security-group-id', variable: 'AWS_SECURITY_GROUP_ID'),
+        string(credentialsId: 'kubevirt-aws-security-group', variable: 'AWS_SECURITY_GROUP'),
+        string(credentialsId: 'kubevirt-aws-key-name', variable: 'AWS_KEY_NAME'),
+        sshUserPrivateKey(credentialsId: 'kubevirt-aws-ssh-private-key', keyFileVariable: 'SSH_KEY_LOCATION')
+
+]
 
 def archives = {
     step([$class   : 'ArtifactArchiver', allowEmptyArchive: true,
@@ -36,9 +48,6 @@ deployOpenShiftTemplate(containersWithProps: containers, openshift_namespace: 'k
         try {
 
             stage('build-image') {
-                echo 'printing env vars'
-                sh 'env'
-                echo 'done printing vars'
                 def cmd = """
                     curl -L -o /tmp/packer.zip https://releases.hashicorp.com/packer/1.2.5/packer_1.2.5_linux_amd64.zip
                     unzip /tmp/packer.zip -d .
