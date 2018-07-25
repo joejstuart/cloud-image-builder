@@ -36,7 +36,9 @@ deployOpenShiftTemplate(containersWithProps: containers, openshift_namespace: 'k
         try {
 
             stage('build-image') {
+                echo 'printing env vars'
                 sh 'env'
+                echo 'done printing vars'
                 def cmd = """
                     curl -L -o /tmp/packer.zip https://releases.hashicorp.com/packer/1.2.5/packer_1.2.5_linux_amd64.zip
                     unzip /tmp/packer.zip -d .
