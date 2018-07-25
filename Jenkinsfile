@@ -41,6 +41,7 @@ deployOpenShiftTemplate(containersWithProps: containers, openshift_namespace: 'k
                     unzip /tmp/packer.zip -d .
                     sh \${BUILD_SCRIPT}
                     """
+                sh 'env'
 
                 checkout scm
                 executeInContainer(containerName: 'ansible-executor', containerScript: cmd, stageVars: params,

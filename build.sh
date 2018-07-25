@@ -1,3 +1,5 @@
+set -x
+
 cd image-files
 git clone https://github.com/kubevirt/kubevirt-ansible/
 
