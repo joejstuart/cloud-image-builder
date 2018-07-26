@@ -3,7 +3,7 @@
 
 def containers = ['ansible-executor': [tag: 'latest', privileged: false, command: 'uid_entrypoint cat']]
 def podName = "cloud-image-builder-${UUID.randomUUID().toString()}"
-/*
+
 def credentials = [
         string(credentialsId: 'kubevirt-aws-access-key-id', variable: 'AWS_ACCESS_KEY_ID'),
         string(credentialsId: 'kubevirt-aws-secret-access-key', variable: 'AWS_SECRET_ACCESS_KEY'),
@@ -14,8 +14,7 @@ def credentials = [
         sshUserPrivateKey(credentialsId: 'kubevirt-aws-ssh-private-key', keyFileVariable: 'SSH_KEY_LOCATION')
 ]
 
-*/
-
+/*
 def credentials = [
         string(credentialsId: '3e509b47-7263-42dc-ac1e-99bbfaadcfe9', variable: 'AWS_ACCESS_KEY_ID'),
         string(credentialsId: '39a3fbf6-f8f9-4fc6-87bc-b294de7636ba', variable: 'AWS_SECRET_ACCESS_KEY'),
@@ -26,6 +25,7 @@ def credentials = [
         sshUserPrivateKey(credentialsId: 'kubevirt-aws-ssh-private-key', keyFileVariable: 'SSH_KEY_LOCATION')
 
 ]
+*/
 
 def archives = {
     step([$class   : 'ArtifactArchiver', allowEmptyArchive: true,
