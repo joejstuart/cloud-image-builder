@@ -23,7 +23,7 @@ pipeline {
                     when {
                         expression {
                             anyOf {
-                                sh(returnStatus: true, script: 'git diff  origin/master --name-only | egrep -i "*ami*|*aws*|*ec2*" > /dev/null') == 0
+                                sh(returnStatus: true, script: 'git diff  origin/master --name-only | egrep -i "ami|aws|ec2" > /dev/null') == 0
                                 changeset glob: "*aws*"
                                 changeset glob: "*ec2*"
                                 changeset glob: "*ami*"
@@ -46,7 +46,7 @@ pipeline {
                 stage('centos-gcp') {
                     when {
                         expression {
-                            sh(returnStatus: true, script: 'git diff  origin/master --name-only | egrep -i "*gce*|*gcp*" > /dev/null') == 0
+                            sh(returnStatus: true, script: 'git diff  origin/master --name-only | egrep -i "gce|gcp" > /dev/null') == 0
                             changeset glob: "*gcp*"
                             changeset glob: "*gce*"
                         }
