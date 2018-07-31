@@ -11,7 +11,8 @@ def credentials = [
         string(credentialsId: 'kubevirt-aws-security-group', variable: 'AWS_SECURITY_GROUP'),
         string(credentialsId: 'kubevirt-aws-key-name', variable: 'AWS_KEY_NAME'),
         sshUserPrivateKey(credentialsId: 'kubevirt-aws-ssh-private-key', keyFileVariable: 'SSH_KEY_LOCATION'),
-        file(credentialsId: 'kubevirt-gcp-credentials-file', variable: 'GOOGLE_APPLICATION_CREDENTIALS')
+        //file(credentialsId: 'kubevirt-gcp-credentials-file', variable: 'GOOGLE_APPLICATION_CREDENTIALS'),
+        file(credentialsId: 'ca3a14be-6c98-499f-a213-9bdc9b9c7bbd', variable: 'GOOGLE_APPLICATION_CREDENTIALS')
 ]
 
 
