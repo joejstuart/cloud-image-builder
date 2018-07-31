@@ -46,7 +46,9 @@ pipeline {
                 stage('centos-gcp') {
                     when {
                         expression {
-                            sh(returnStatus: true, script: 'git diff  origin/master --name-only | egrep -i "*gcp*" > /dev/null') == 0
+                            sh(returnStatus: true, script: 'git diff  origin/master --name-only | egrep -i "*gce*|*gcp*" > /dev/null') == 0
+                            changeset glob: "*gcp*"
+                            changeset glob: "*gce*"
                         }
                     }
 
