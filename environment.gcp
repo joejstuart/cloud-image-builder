@@ -1,5 +1,3 @@
-# Packer build
-#export GOOGLE_APPLICATION_CREDENTIALS=""
 IMAGE_NAME=kubevirt-button
 MACHINE_TYPE=custom-2-8192
 PROJECT_ID=cnvlab-209908

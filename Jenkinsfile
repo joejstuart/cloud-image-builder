@@ -54,7 +54,8 @@ deployOpenShiftTemplate(containersWithProps: containers, openshift_namespace: 'k
             stage('test-image') {
                 def cmd = """
                     mkdir -p ~/.ssh
-                    ansible-playbook -vvv --private-key \${SSH_KEY_LOCATION} \${PLAYBOOK}
+                    #ansible-playbook -vvv --private-key \${SSH_KEY_LOCATION} \${PLAYBOOK}
+                    ansible-playbook -vvv \${PLAYBOOK}
                     """
 
 
