@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+
+set -x
+
 cd image-files
 git clone https://github.com/kubevirt/kubevirt-ansible/
 
